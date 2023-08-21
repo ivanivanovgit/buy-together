@@ -1,0 +1,31 @@
+// sharedRouteChat.module.scss
+
+@import "sharedRouteChat.module.scss";
+
+//main classes
+.routeInput {
+  width: 100%;
+}
+
+.RouteLabel {
+  @extend %label;
+  margin-bottom: 0.5rem;
+}
+
+.firstPointInput,
+.firstPointMessageInput,
+.secondPointInput {
+  min-height: 2.5rem;
+}
+
+.buttonsRoute {
+  display: flex;
+  flex-wrap: wrap;
+}
+.routeButton {
+  margin-bottom: 0.5rem;
+}
+
+.addRouteButton {
+  margin-right: 0.5rem;
+}

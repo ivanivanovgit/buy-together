@@ -1,0 +1,14 @@
+// HorizontHome.module.scss
+@import "sharedHomeHelp.module.scss";
+
+.widthMainMap {
+  max-width: 55vw;
+}
+
+.imageContainerMainMap {
+  @apply float-right ml-6;
+}
+
+.textMainMap {
+  @apply mt-6;
+}

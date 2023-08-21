@@ -1,0 +1,13 @@
+// VerticalRouteMap.module.scss
+
+@import "sharedRoute.module.scss";
+
+//main lasses
+.wrapper {
+  padding: $paddingMain;
+}
+
+.rightSide {
+  padding: 0.15rem;
+  background-color: $rightSideColor;
+}

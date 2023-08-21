@@ -1,0 +1,19 @@
+/* VerticalChatMap.module.scss */
+@import "sharedChat.module.scss";
+
+//main classes
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $paddingMain;
+}
+
+.leftSide {
+  padding: $paddingAdd;
+  padding-bottom: $paddingMain + $paddingAdd;
+}
+
+.rightSide {
+  padding: 0.15rem;
+  background-color: $rightSideColor;
+}

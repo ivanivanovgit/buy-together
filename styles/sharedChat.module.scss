@@ -1,0 +1,124 @@
+// sharedChat.module.scss
+
+@import "sharedRouteChat.module.scss";
+
+%adddelshow {
+  font-size: 0.85rem;
+  min-width: 1rem;
+}
+
+//main classes
+
+.searchAdressWrapper {
+  margin-bottom: 0.4rem;
+}
+.searchAdressLabel {
+  @extend %label;
+}
+
+.stretchInput {
+  @extend %input;
+
+  /* font-size: 1rem; */
+}
+
+.stretchInputAddTheme {
+  @extend %input;
+
+  font-size: 0.9rem;
+}
+
+.addressLabel {
+  @extend %label;
+  text-transform: none;
+}
+
+.alignVertical {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.addressWarning {
+  @extend %warning;
+}
+
+.addDeleteThemeWrapper {
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.addThemeLabel {
+  @extend %label;
+  margin-top: 0.4rem;
+  margin-bottom: 00.5rem;
+}
+
+.selectedThemeWrapper {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.chosenTheme {
+  font-size: 0.9rem;
+}
+.selectedTheme {
+  font-size: 0.9rem;
+}
+
+.stretchTheme {
+  height: 1.7rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.MenuItemStyle {
+  font-size: 0.9rem;
+  height: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.MenuItemStyle:hover {
+  background-color: #b0eced; /* #ade0fb; */ /* #0a93dd; */
+}
+
+.showMarkersButton {
+  @extend %adddelshow;
+  margin-bottom: 0.8rem;
+}
+
+.delAddThemeButtonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* margin-top: 0.3rem; */
+}
+.closeIcon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.3rem;
+  color: #14c6c9;
+  cursor: pointer;
+}
+
+.addMessageWithMarker {
+  margin-bottom: 0.5rem;
+}
+
+.addMessageWithMarkerLabel {
+  @extend %label;
+  margin-top: 0.8rem;
+}
+
+.addMessageWithMarkerInput {
+  width: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.chatError {
+  @extend %warning;
+  color: red;
+}

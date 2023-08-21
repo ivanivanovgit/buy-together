@@ -1,0 +1,61 @@
+// sharedHomeHelp.module.scss
+@import "sharedRouteChat.module.scss";
+
+.container {
+  padding: $paddingMain + $paddingMain;
+}
+
+.bold {
+  @apply font-bold text-lg;
+}
+
+.text {
+  @apply text-justify;
+}
+
+.imageContainer {
+  @apply my-4 w-3/5 mx-auto flex justify-center flex-col items-center;
+}
+
+.imageContainerHome {
+  @apply my-4 flex justify-center flex-col items-center;
+}
+
+.sectionTitle {
+  @apply text-lg my-1 font-semibold;
+}
+
+.sectionMt6 {
+  @apply mt-8;
+}
+
+.subsectionTitle {
+  @apply font-medium;
+}
+
+.numberedList {
+  @apply list-decimal pl-6 text-justify;
+}
+
+/* .bulletList {
+  @apply list-disc pl-6  text-justify;
+} */
+
+.bulletList {
+  list-style: none;
+  padding-left: 6px;
+  text-align: justify;
+  padding-left: 1.5rem;
+}
+
+.bulletList li::before {
+  content: "•";
+  color: #14c6c9;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.homeLink {
+  @apply text-[#14c6c9];
+}

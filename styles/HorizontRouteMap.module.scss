@@ -1,0 +1,20 @@
+// HorizontRouteMap.module.scss
+@import "sharedRoute.module.scss";
+
+//main classes
+.wrapper {
+  display: flex;
+  padding: $paddingMain;
+}
+
+.leftSide {
+  flex-basis: 40%;
+  padding: $paddingAdd;
+  padding-right: $paddingMain + $paddingAdd;
+}
+
+.rightSide {
+  flex-basis: 60%;
+  padding: 0.15rem;
+  background-color: $rightSideColor;
+}

@@ -1,0 +1,23 @@
+// VerticalTabsGde.module.scss
+@import "sharedTabsGde.module.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0.15rem;
+  /* min-height: calc(100vh - 5rem); */
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.tab {
+  min-height: 4rem;
+}
+.content {
+  background-color: $tabContentBackgroundColor;
+  padding: 0.15rem;
+  margin-top: 0.15rem;
+}
