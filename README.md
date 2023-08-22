@@ -1,6 +1,6 @@
-# Kupim Vmeste
+# Chat on the map
 
-Kupim Vmeste is a service designed for joint purchases (chat on the map) and searching for carpooling vehicles. The service's functionality includes three key tabs: "Chat on the map", "Search for carpooling cars", and "Where to buy", all of which operate without registration. The use of the service is absolutely free.
+Chat on the map is a service designed for joint purchases (chat on the map) and searching for carpooling vehicles. The service's functionality includes three key tabs: "Chat on the map", "Search for carpooling cars", and "Where to buy", all of which operate without registration. The use of the service is absolutely free.
 
 ## Features
 
