@@ -4,7 +4,7 @@ import HorizontRoute from "../src/components/Auxiliary/HorizontRoute";
 import VerticalRoute from "../src/components/Auxiliary/VerticalRoute";
 import MapRoute from "../src/components/Map/MapRoute";
 
-const Poiskpoputnyhmashin = () => {
+const PassingCars = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -31,4 +31,4 @@ const Poiskpoputnyhmashin = () => {
   );
 };
 
-export default Poiskpoputnyhmashin;
+export default PassingCars;

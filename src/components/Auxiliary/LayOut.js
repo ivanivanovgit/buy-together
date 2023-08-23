@@ -7,14 +7,13 @@ const linksArray = [
   { name: "Главная", id: 0, href: "/" },
   { name: "Чат на карте", id: 1, href: "/chat-na-karte" },
   {
-    name: "Поиск попутных машин",
+    name: "Passing cars",
     id: 2,
-    href: "/poisk-poputnyh-mashin-dlya-perevozki-gruza",
+    href: "/passing-cars",
   },
-  { name: "Где купить", id: 3, href: "/gde-kupit" },
-  { name: "Помощь/F.A.Q.", id: 4, href: "/help" },
+  { name: "Telegram channels", id: 3, href: "/telegram" },
   ,
-  { name: "Блог", id: 5, href: "/my-blog" },
+  { name: "Blog", id: 4, href: "/my-blog" },
   ,
 ];
 

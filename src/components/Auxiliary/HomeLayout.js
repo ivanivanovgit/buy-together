@@ -43,7 +43,7 @@ function HomeLayout({ stylesHome }) {
           совместных покупок (покупок вскладчину).
         </li>
         <li>
-          <ActiveLink href="/poisk-poputnyh-mashin-dlya-perevozki-gruza">
+          <ActiveLink href="/passing-cars">
             <span
               className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
             >
@@ -52,17 +52,6 @@ function HomeLayout({ stylesHome }) {
           </ActiveLink>
           на данной вкладке Вы можете посмотреть или добавить информацию о
           попутных машинах для перевозки грузов.
-        </li>
-        <li>
-          <ActiveLink href="/gde-kupit">
-            <span
-              className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
-            >
-              Где купить:{" "}
-            </span>
-          </ActiveLink>
-          используя эту вкладку, можно найти ближайшие магазины, рынки и другие
-          точки продаж, проверенные пользователями.
         </li>
       </ul>
 
