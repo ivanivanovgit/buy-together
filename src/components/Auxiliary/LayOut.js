@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { Constants } from "../../CONSTANTS";
 
 const linksArray = [
-  { name: "Главная", id: 0, href: "/" },
+  { name: "Home page", id: 0, href: "/" },
   { name: "Chat on the map", id: 1, href: "/chat-on-the-map" },
   {
     name: "Passing cars",

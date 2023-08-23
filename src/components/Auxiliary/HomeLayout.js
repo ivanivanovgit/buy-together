@@ -57,14 +57,14 @@ function HomeLayout({ stylesHome }) {
 
       <p className={stylesHome.text}>
         В разделе{" "}
-        <ActiveLink href="/help">
+        <ActiveLink href="/telegram">
           <span
             className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
           >
-            "Помощь/F.A.Q."
+            "Telegram channels"
           </span>
         </ActiveLink>{" "}
-        Вы можете найти подробную инструкцию по каждой из вкладок сервиса.
+        You can find a list of channels that are useful for the construction
       </p>
       <div className={`${stylesHome.sectionTitle} ${stylesHome.sectionMt6}`}>
         Примеры использования сервиса
