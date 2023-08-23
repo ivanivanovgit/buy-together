@@ -1,8 +1,6 @@
 // blog-servis-map-chat.jsx
 import Head from "next/head";
 import styles from "../styles/Blog.module.scss";
-import Accordion from "../src/components/Auxiliary/Accordion";
-import CityList from "../src/components/Auxiliary/CityList";
 
 function blogServisMapChat() {
   return (
@@ -49,20 +47,6 @@ function blogServisMapChat() {
           ремонтных проектах. Это удобно, экологично и может даже принести Вам
           небольшую прибыль.
         </div>
-        <Accordion
-          id="accordionBlog"
-          title={<div>Возможно вы искали:</div>}
-          open={true}
-          /*    open={false} */
-        >
-          <CityList
-            phrases={[
-              "map-чат в CITY",
-              "сервис map-чат без регистрации в CITY",
-            ]}
-            param="sortBegin"
-          />
-        </Accordion>
       </div>
     </>
   );

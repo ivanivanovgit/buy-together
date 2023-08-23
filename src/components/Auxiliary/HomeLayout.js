@@ -31,7 +31,7 @@ function HomeLayout({ stylesHome }) {
 
       <ul className={stylesHome.bulletList}>
         <li>
-          <ActiveLink href="/chat-na-karte">
+          <ActiveLink href="/chat-on-the-map">
             <span
               className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
             >

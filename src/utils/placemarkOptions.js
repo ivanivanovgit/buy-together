@@ -134,7 +134,7 @@ export async function shareMarker(addPlacemark, getShareMarker, dispatch) {
       const host_name = window.location.host;
 
       // Создаем ссылку на маркер с темой
-      const url = `${host_name}/chat-na-karte?id=${markerId}&theme=${theme}`;
+      const url = `${host_name}/chat-on-the-map?id=${markerId}&theme=${theme}`;
 
       // Копировать ссылку в буфер обмена
       navigator.clipboard.writeText(url).then(() => {});

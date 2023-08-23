@@ -5,7 +5,7 @@ import { Constants } from "../../CONSTANTS";
 
 const linksArray = [
   { name: "Главная", id: 0, href: "/" },
-  { name: "Чат на карте", id: 1, href: "/chat-na-karte" },
+  { name: "Chat on the map", id: 1, href: "/chat-on-the-map" },
   {
     name: "Passing cars",
     id: 2,

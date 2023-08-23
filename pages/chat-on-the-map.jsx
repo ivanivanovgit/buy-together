@@ -1,4 +1,4 @@
-// chat-na-karte.jsx
+// chat-on-the-map.jsx
 import Head from "next/head";
 import { useTheme, useMediaQuery } from "@mui/material";
 import MapChat from "../src/components/Map/MapChat";

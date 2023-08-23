@@ -1,8 +1,6 @@
 // blog-puteshestvie-po-rossii-na-poputnyh-mashinah.jsx
 import Head from "next/head";
 import styles from "../styles/Blog.module.scss";
-import Accordion from "../src/components/Auxiliary/Accordion";
-import CityList from "../src/components/Auxiliary/CityList";
 
 function blogPuteshestvieRossiiPoputnyhMashinah() {
   return (
@@ -74,17 +72,6 @@ function blogPuteshestvieRossiiPoputnyhMashinah() {
           пропустите эту замечательную возможность, начните свое приключение уже
           сегодня!
         </div>
-        <Accordion
-          id="accordionBlog"
-          title={<div>Возможно вы искали:</div>}
-          open={true}
-          /*    open={false} */
-        >
-          <CityList
-            phrases={["путешествие на попутных машинах в CITY"]}
-            param="sortBegin"
-          />
-        </Accordion>
       </div>
     </>
   );
