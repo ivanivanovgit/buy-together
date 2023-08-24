@@ -1,8 +1,8 @@
-// blog-puteshestvie-po-rossii-na-poputnyh-mashinah.jsx
+// blog-passing-cars.jsx
 import Head from "next/head";
 import styles from "../styles/Blog.module.scss";
 
-function blogPuteshestvieRossiiPoputnyhMashinah() {
+function blogPassingCars() {
   return (
     <>
       <Head>
@@ -77,4 +77,4 @@ function blogPuteshestvieRossiiPoputnyhMashinah() {
   );
 }
 
-export default blogPuteshestvieRossiiPoputnyhMashinah;
+export default blogPassingCars;

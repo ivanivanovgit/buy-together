@@ -16,9 +16,8 @@ const Footer = () => {
         padding: "0 0.5rem",
       }}
     >
-      Если Вы хотите сохранить свое сообщение в разделе "Чат на карте", добавить
-      свою компанию в раздел "Где купить", или Вам нужна разработка сайта или
-      приложения, напишите на почту: {Constants.email}
+      If you want to save your message in the "Chat on the map" section, or if
+      you need website development, please email: {Constants.email}
     </Box>
   );
 };

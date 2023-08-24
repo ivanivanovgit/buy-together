@@ -57,11 +57,11 @@ function HomeLayout({ stylesHome }) {
 
       <p className={stylesHome.text}>
         В разделе{" "}
-        <ActiveLink href="/telegram">
+        <ActiveLink href="/social">
           <span
             className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
           >
-            "Telegram channels"
+            "Social channels"
           </span>
         </ActiveLink>{" "}
         You can find a list of channels that are useful for the construction

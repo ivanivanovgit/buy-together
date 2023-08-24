@@ -26,7 +26,7 @@ const MyBlog = () => {
           </div>
           <ul className={styles.bulletList}>
             <ActiveLink
-              href="/blog-servis-map-chat"
+              href="/blog-service-map-chat"
               hoverStyle={{ color: Constants.thirdColor }}
             >
               <li>
@@ -37,7 +37,7 @@ const MyBlog = () => {
               </li>
             </ActiveLink>
             <ActiveLink
-              href="/blog-puteshestvie-po-rossii-na-poputnyh-mashinah"
+              href="/blog-passing-cars"
               hoverStyle={{ color: Constants.thirdColor }}
             >
               <li>

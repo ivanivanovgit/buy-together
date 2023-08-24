@@ -1,8 +1,8 @@
-// blog-servis-map-chat.jsx
+// blog-service-map-chat.jsx
 import Head from "next/head";
 import styles from "../styles/Blog.module.scss";
 
-function blogServisMapChat() {
+function blogServiceMapChat() {
   return (
     <>
       <Head>
@@ -52,4 +52,4 @@ function blogServisMapChat() {
   );
 }
 
-export default blogServisMapChat;
+export default blogServiceMapChat;

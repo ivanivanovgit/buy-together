@@ -11,7 +11,7 @@ const linksArray = [
     id: 2,
     href: "/passing-cars",
   },
-  { name: "Telegram channels", id: 3, href: "/telegram" },
+  { name: "Social channels", id: 3, href: "/social" },
   ,
   { name: "Blog", id: 4, href: "/my-blog" },
   ,
