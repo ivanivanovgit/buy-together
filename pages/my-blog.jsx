@@ -22,7 +22,7 @@ const MyBlog = () => {
       <div className={styles.container}>
         <div>
           <div className={styles.sectionTitle}>
-            Использование сервиса: примеры и варианты
+            Service usage: examples and options
           </div>
           <ul className={styles.bulletList}>
             <ActiveLink
@@ -31,8 +31,7 @@ const MyBlog = () => {
             >
               <li>
                 <span className={styles.subsectionTitle}>
-                  Сервис "Map-чат" поможет, если остались стройматериалы после
-                  ремонта
+                  Choosing a restaurant using the "Chat on the map" service
                 </span>
               </li>
             </ActiveLink>
@@ -42,7 +41,7 @@ const MyBlog = () => {
             >
               <li>
                 <span className={styles.subsectionTitle}>
-                  Путешествие по России на попутных машинах
+                  Hitchhiking journey using the "Chat on the map" service
                 </span>
               </li>
             </ActiveLink>
