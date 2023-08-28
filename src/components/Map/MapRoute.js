@@ -14,7 +14,7 @@ export default function MapRoute({
     <YMaps
       query={{
         apikey: process.env.apiYanKey,
-        lang: "ru_RU",
+        lang: "en_US",
         load: "package.full",
       }}
     >

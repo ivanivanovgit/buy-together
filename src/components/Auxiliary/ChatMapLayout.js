@@ -63,23 +63,24 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
     const hasMarkers = await checkThemeHasMarkers(selectedTheme);
 
     if (hasMarkers) {
-      setDeleteThemeError(`Удалите маркеры темы перед её удалением`);
+      setDeleteThemeError(`Remove the theme markers before deleting it.`);
       setTimeout(() => {
         setDeleteThemeError("");
-      }, 3000); // сбрасываем сообщение после 3 секунд
+      }, 3000);
       return;
     }
 
     const newThemes = themes.filter((theme) => theme !== selectedTheme);
     setThemes(newThemes);
     dispatch(setSelectedTheme(newThemes?.length > 0 ? newThemes[0] : ""));
-    setDeleteThemeError(`Тема \"${selectedTheme}\"  удалена успешно.`);
+    setDeleteThemeError(
+      `The theme \"${selectedTheme}\"   has been successfully deleted.`
+    );
     setTimeout(() => {
-      setDeleteThemeError(""); // Очищаем сообщение об ошибке при успешном удалении темы
-    }, 3000); // сбрасываем сообщение после 3 секунд
+      setDeleteThemeError("");
+    }, 3000);
   }
 
-  // Универсальный обработчик ввода
   const handleInput = (dispatchFunction, event) => {
     let userInput = event.target.value;
     const validation = validateInput(userInput);
@@ -103,7 +104,6 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
     dispatch(setSearchButtonClick(searchInput));
   };
 
-  // Обработчик события нажатия кнопки "Добавить тему"
   const handleAddThemeFormSubmit = (event) => {
     event.preventDefault();
     const themeExists = themes.some((theme) => theme === inputGroupText);
@@ -114,17 +114,14 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
     }
   };
 
-  // Обработчик события изменения выбранной темы в элементе select
   const handleSelectThemeChange = (event) => {
     dispatch(setSelectedTheme(event.target.value));
   };
 
-  // Обработчик события изменения текста в поле ввода
   const handleInputChange = (event) => {
     handleInput((value) => dispatch(setInputText(value)), event);
   };
 
-  // Обработчик события изменения текста в группе
   const handleInputGroupChange = (event) => {
     handleInput((value) => dispatch(setInputGroupText(value)), event);
   };
@@ -136,7 +133,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
     }
 
     if (!isMarkerPlaced || !selectedTheme) {
-      setWarnNothemeOrAdress("Задайте адрес и тему");
+      setWarnNothemeOrAdress("Specify the address and theme.");
       setTimeout(() => {
         setWarnNothemeOrAdress("");
       }, 3000);
@@ -151,7 +148,6 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
 
   useEffect(() => {
     if (Object.keys(router?.query ?? {}).length === 0) {
-      // query ещё не доступен, выходим из useEffect
       return;
     }
 
@@ -183,7 +179,6 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
   }, [searchButtonClick]);
 
   useEffect(() => {
-    // Если выбранная тема отсутствует в списке тем, сбросить выбранную тему
     if (selectedTheme && !themes.includes(selectedTheme)) {
       dispatch(setSelectedTheme(""));
     }
@@ -207,7 +202,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
       <div className={layoutStyles.leftSide}>
         <div className={layoutStyles.searchAdressWrapper}>
           <div className={layoutStyles.searchAdressLabel}>
-            1. Введите адрес в поиске или нажмите на карту
+            1. Enter the address in the search or click on the map
           </div>
 
           <form onSubmit={handleSearchButtonClick}>
@@ -218,33 +213,33 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               ref={searchInputRef}
               value={searchInput}
               onChange={(e) => dispatch(setSearchInput(e.target.value))}
-              placeholder="&nbsp;&nbsp;&nbsp;Введите адрес для поиска"
+              placeholder="&nbsp;&nbsp;&nbsp;Enter the address for search"
               pattern="^[^<>]*\S[^<>]*$"
-              title="Пожалуйста, введите адрес для поиска. По данному адресу будет размещен маркер с сообщением в заданной теме."
+              title="Please enter an address for search. A marker with a message in the specified topic will be placed at this address."
               maxLength={200}
               required
             />
             <button className={layoutStyles.mainButtonStyle} type="submit">
-              Найти
+              Search
             </button>
           </form>
         </div>
 
-        <div className={layoutStyles.addressLabel}>Найденный адрес:</div>
+        <div className={layoutStyles.addressLabel}>Found address:</div>
         <div className={layoutStyles.alignVertical}>
           <div>{address}</div>
           {!isMarkerPlaced && (
             <div className={layoutStyles.addressWarning}>
-              *Щелкните мышкой на карте в нужном вам месте или выберите адрес
-              при помощи поиска выше
+              *Click on the map at the desired location or select an address
+              using the search above
             </div>
           )}
         </div>
         <Divider />
-        {/* Форма для выбора и добавления темы*/}
+
         <div className={layoutStyles.addDeleteThemeWrapper}>
           <div className={layoutStyles.addThemeLabel}>
-            2.Выберите или добавьте тему
+            2. Select or add a theme
           </div>
           <form>
             <FormControl fullWidth size="small">
@@ -267,7 +262,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
                     value=""
                     disabled
                   >
-                    Тема не задана
+                    Theme is not set
                   </MenuItem>
                 )}
                 {themes?.map((theme, index) => (
@@ -276,7 +271,6 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
                     className={layoutStyles.MenuItemStyle}
                     value={theme}
                   >
-                    {/* Обертываем текст элемента в ListItemText и применяем стили для переноса слов: */}
                     <ListItemText
                       primary={theme}
                       style={{ wordWrap: "break-word", whiteSpace: "normal" }}
@@ -287,7 +281,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
             </FormControl>
 
             <div className={layoutStyles.selectedThemeWrapper}>
-              <div className={layoutStyles.chosenTheme}>Выбранная тема: </div>
+              <div className={layoutStyles.chosenTheme}>Selected theme: </div>
               <div className={layoutStyles.selectedTheme}>
                 {selectedTheme}
                 {selectedTheme && (
@@ -298,7 +292,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
                 )}
                 {!selectedTheme && (
                   <div className={layoutStyles.addressWarning}>
-                    *Выберите или добавьте тему
+                    *Select or add a theme
                   </div>
                 )}
               </div>
@@ -308,7 +302,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               className={`${layoutStyles.mainButtonStyle} ${layoutStyles.showMarkersButton}`}
               onClick={handleShowAllMarkers}
             >
-              Показать маркеры по всем темам
+              Show markers for all themes
             </button>
           </form>
           <form onSubmit={handleAddThemeFormSubmit}>
@@ -318,24 +312,24 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               name="filterTheme"
               value={inputGroupText}
               onChange={handleInputGroupChange}
-              placeholder="&nbsp;&nbsp;&nbsp;Введите тему для добавления"
+              placeholder="&nbsp;&nbsp;&nbsp;Enter a theme to add"
               pattern="^[^<>]*\S[^<>]*$"
-              title="Пожалуйста, добавьте тему. По данной теме вы сможете добавить маркеры с сообщением или посмотреть другие маркеры с данной тематикой. Удалить тему можно только после удаления маркеров. Длина темы не должна превышать 100 символов."
+              title="Please add a theme. Under this theme, you can add markers with messages or view other markers related to this topic. A theme can only be deleted after its markers are removed. The theme length should not exceed 100 characters."
               maxLength={100}
               required
             />
             <div className={layoutStyles.delAddThemeButtonsWrapper}>
               <button className={layoutStyles.mainButtonStyle} type="submit">
-                Добавить тему
+                Add a theme
               </button>
             </div>
           </form>
         </div>
         <Divider />
-        {/* Форма для ввода текста сообщений и добавления маркера */}
+
         <div className={layoutStyles.addMessageWithMarker}>
           <div className={layoutStyles.addMessageWithMarkerLabel}>
-            3. Добавьте сообщение на карту
+            3. Add a message to the map
           </div>
           <form onSubmit={handleFormSubmitmessage}>
             <input
@@ -344,9 +338,9 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               name="message"
               value={inputText}
               onChange={handleInputChange}
-              placeholder="&nbsp;&nbsp;&nbsp;Введите сообщение"
+              placeholder="&nbsp;&nbsp;&nbsp;Enter a message"
               pattern="^[^<>]*\S[^<>]*$"
-              title="Пожалуйста, введите сообщение. Данное сообщение будет у добавленного вами маркера. Длина сообщения не должна превышать 300 символов."
+              title="Please enter a message. This message will be for the marker you add. The message length should not exceed 300 characters."
               maxLength={300}
               required
             />
@@ -355,7 +349,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               type="submit"
               disabled={isAddingMarker}
             >
-              Добавить на карту
+              Add to the map
             </button>
           </form>
         </div>
@@ -377,7 +371,7 @@ function ChatMapLayout({ mapChat, layoutStyles }) {
               severity="error"
               onClose={() => dispatch(setOpenAlert(false))}
             >
-              Маркера с заданной темой и сообщением не существует
+              There is no marker with the specified theme and message
             </Alert>
           </DialogContent>
         </Dialog>

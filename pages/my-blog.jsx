@@ -16,7 +16,7 @@ const MyBlog = () => {
         </title>
         <meta
           name="description"
-          content='Блог с примерами использования сервиса "Купим вместе" (чат на карте, поиск попутных машин, совместные покупки)'
+          content="Blog with examples of using the 'Chat on the map' service.'"
         />
       </Head>
       <div className={styles.container}>

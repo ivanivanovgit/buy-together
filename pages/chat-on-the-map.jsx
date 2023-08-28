@@ -16,10 +16,10 @@ const Chatnakarte = () => {
   return (
     <>
       <Head>
-        <title>Чат на карте, карты онлайн с чатом, map чат</title>
+        <title>Chat on the map, online map with chat, map chat</title>
         <meta
           name="description"
-          content="Чат на карте: это основная вкладка сервиса, на ней можно обмениваться сообщениями, размещая их на карте. Таким образом, удобно объединяться для совместных покупок (покупок вскладчину)"
+          content="Chat on the map: this is the main tab of the service, where you can exchange messages by placing them on the map."
         />
       </Head>
       {isMatch ? (

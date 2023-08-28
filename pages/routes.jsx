@@ -17,10 +17,12 @@ const Routes = () => {
   return (
     <>
       <Head>
-        <title>Сервис для поиска попутной машины для перевозки грузов</title>
+        <title>
+          The 'routes' service, where you can view or add a route by message.
+        </title>
         <meta
           name="description"
-          content="Вы можете найти или добавить информацию о попутных машинах для перевозки грузов или просто попутно доехать куда-либо."
+          content="You can find or add information about routes."
         />
       </Head>
       {isMatch ? (

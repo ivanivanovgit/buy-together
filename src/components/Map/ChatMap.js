@@ -74,12 +74,10 @@ function ChatMap({ mapStyle, searchInputRef }) {
     );
   }
 
-  // Обновляем адрес
   const onAddressChange = (newAddress) => {
     dispatch(setAddress(newAddress));
   };
 
-  //  Функция для поиска адреса
   const searchAddress = async (address) => {
     if (!ymaps || !myMapRef.current || !address) {
       return;
@@ -113,14 +111,13 @@ function ChatMap({ mapStyle, searchInputRef }) {
       );
 
       onAddressChange(address);
-      // Центрирование карты на найденных координатах
+
       myMapRef.current.setCenter(coords, myMapRef.current.getZoom(), {
         duration: 500,
       });
     }
   };
 
-  //  для подсказок адреса
   useAddressSuggestionChat(
     ymaps,
     searchInputRef,
@@ -129,20 +126,15 @@ function ChatMap({ mapStyle, searchInputRef }) {
     searchAddress
   );
 
-  /////////  для установки значения адреса подсказок в  поле ввода адреса
   useSelectedAddressChat(selectedAddress, dispatch, ymaps);
 
-  ///////// для поиска адреса по координатам
   useSearchButtonClickChat(searchButtonClick, searchAddress, ymaps);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  // для получения и установки id и theme из query
   useShareMarker(router, setShareMarkerId, setShareMarkerTheme);
 
-  //  для проверки загружена карта или нет
   useMapReady(ymaps, setIsMapLoaded);
 
-  //  для открытия соответствующего балуна маркера
   useFetchShareMarker(
     shareMarkerId,
     ymaps,
@@ -153,18 +145,17 @@ function ChatMap({ mapStyle, searchInputRef }) {
     dispatch
   );
 
-  ///////// useEffect для добавления перетаскиваемого маркера и инициализации карты
   useEffect(() => {
     if (!ymaps || !mapRef.current) {
-      dispatch(setMarkersMesage("Карта загружается..."));
+      dispatch(setMarkersMesage("The map is loading..."));
 
       timeoutIdRef.current = setTimeout(() => {
         dispatch(
           setMarkersMesage(
-            "API Яндекс Карт недоступен.  Попробуйте сменить сеть  или  отключить VPN."
+            "Yandex Maps API is unavailable. Try switching the network or disabling VPN."
           )
         );
-      }, 4000);
+      }, 5000);
 
       return;
     }
@@ -195,15 +186,12 @@ function ChatMap({ mapStyle, searchInputRef }) {
     const searchControl = myMapRef.current.controls.get("searchControl");
     searchControl.options.set("noPlacemark", "true");
 
-    // Создаем кластер
     clustererRef.current = new ymaps.Clusterer({
       preset: "islands#orangeClusterIcons",
     });
 
-    // Добавляем кластер на карту
     myMapRef.current.geoObjects.add(clustererRef.current);
 
-    // Слушаем клик на карте.
     myMapRef.current.events.add("click", function (e) {
       let coords = e.get("coords");
       currentCoords.current = coords;
@@ -240,20 +228,17 @@ function ChatMap({ mapStyle, searchInputRef }) {
     ///////
   }, [ymaps]);
 
-  /////////  useEffect для извлечения маркеров на карту согласно выбранной теме
   useEffect(() => {
     if (!ymaps || !myMapRef.current || !isMapLoaded || !selectedTheme) {
       return;
     }
 
-    // Проверяем, существует ли clustererRef.current перед удалением маркеров
     if (clustererRef.current) {
-      // Удаляем все маркеры из кластера
       clustererRef.current.removeAll();
     }
 
     ////
-    // Получаем маркеры из базы данных
+
     fetchMarkersByTheme(selectedTheme).then((markers) => {
       markers.map((marker) => {
         const markerId = marker.id;
@@ -262,7 +247,7 @@ function ChatMap({ mapStyle, searchInputRef }) {
         const message = marker.message_markers;
 
         //////
-        // Создаем макет балуна с кнопкой "Удалить маркер"
+
         const MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
           balloonContentTemplate,
           {
@@ -297,7 +282,6 @@ function ChatMap({ mapStyle, searchInputRef }) {
 
         clustererRef.current.add(addPlacemark);
 
-        // Добавляем кластер на карту
         myMapRef.current.geoObjects.add(clustererRef.current);
 
         /////
@@ -312,7 +296,6 @@ function ChatMap({ mapStyle, searchInputRef }) {
     isMapLoaded,
   ]);
 
-  //  useEffect для  добавления нового маркера по кнопке Добавить маркер
   useEffect(() => {
     if (
       createMarker === 0 ||
@@ -323,13 +306,12 @@ function ChatMap({ mapStyle, searchInputRef }) {
       return;
     }
 
-    dispatch(setMarkersMesage("Идет добавление маркера, подождите..."));
+    dispatch(setMarkersMesage("Adding the marker, please wait..."));
 
     setTimeout(() => {
       dispatch(setMarkersMesage(""));
     }, 3000);
 
-    // Проверка на дубликат
     checkDuplicateMarker(
       currentCoords.current[0],
       currentCoords.current[1],
@@ -337,10 +319,9 @@ function ChatMap({ mapStyle, searchInputRef }) {
     )
       .then((isDuplicate) => {
         if (isDuplicate) {
-          // Вывод сообщения пользователю
           dispatch(
             setMarkersMesage(
-              "Маркер с этими координатами и сообщением уже существует"
+              "A marker with these coordinates and message already exists"
             )
           );
           setTimeout(() => {
@@ -349,17 +330,15 @@ function ChatMap({ mapStyle, searchInputRef }) {
           return;
         }
 
-        // Смещаем немного координаты маркера, чтобы он не совпадал с другими маркерами
         checkDuplicateMarkerCoords(
           currentCoords.current[0],
           currentCoords.current[1]
         ).then((isDuplicateCoords) => {
           //////////////////////////////
           if (isDuplicateCoords) {
-            // Вывод сообщения пользователю
             dispatch(
               setMarkersMesage(
-                "Маркер с этими координатами уже существует, добавляем с небольшим смещением"
+                "A marker with these coordinates already exists, adding with a slight offset."
               )
             );
 
@@ -375,7 +354,6 @@ function ChatMap({ mapStyle, searchInputRef }) {
             }, 3000);
           }
 
-          // Если дубликат не обнаружен, добавляем новый маркер
           addMarkerToDatabase(
             currentCoords.current[0],
             currentCoords.current[1],
@@ -428,15 +406,13 @@ function ChatMap({ mapStyle, searchInputRef }) {
       });
   }, [createMarker, ymaps]);
 
-  //////// useEffect для извлечения всех маркеров на карту
   useEffect(() => {
     if (showAllMarkers) {
       if (!ymaps) {
         return;
       }
-      // Проверяем, существует ли clustererRef.current перед удалением маркеров
+
       if (clustererRef.current) {
-        // Удаляем все маркеры из кластера
         clustererRef.current.removeAll();
       }
 
@@ -448,7 +424,7 @@ function ChatMap({ mapStyle, searchInputRef }) {
           const message = marker.message_markers;
 
           //////
-          // Создаем макет балуна с кнопкой "Удалить маркер"
+
           const MyBalloonContentLayout =
             ymaps.templateLayoutFactory.createClass(balloonContentTemplate, {
               build: buildFunction,
@@ -481,7 +457,6 @@ function ChatMap({ mapStyle, searchInputRef }) {
 
           clustererRef.current.add(addPlacemark);
 
-          // Добавляем кластер на карту
           myMapRef.current.geoObjects.add(clustererRef.current);
 
           /////

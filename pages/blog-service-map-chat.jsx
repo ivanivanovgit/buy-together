@@ -6,7 +6,7 @@ function blogServiceMapChat() {
   return (
     <>
       <Head>
-        <title>Map-чат без регистрации</title>
+        <title>Choosing a Restaurant with 'Chat on the Map'</title>
         <meta name="description" content="Map-чат без регистрации" />
       </Head>
       <div className={styles.container}>

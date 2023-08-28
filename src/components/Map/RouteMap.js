@@ -42,18 +42,17 @@ function RouteMap({
   const dispatch = useDispatch();
   const countMapRoute = useSelector((state) => state.routeCount.countMapRoute);
 
-  ///////// useEffect для инициализации карты
   useEffect(() => {
     if (!ymaps || !mapRef.current) {
-      dispatch(setSubmitMessage("Карта загружается..."));
+      dispatch(setSubmitMessage("The map is loading..."));
 
       timeoutIdRef.current = setTimeout(() => {
         dispatch(
           setSubmitMessage(
-            "API Яндекс Карт недоступен.  Попробуйте сменить сеть  или  отключить VPN."
+            "Yandex Maps API is unavailable. Try switching the network or disabling VPN."
           )
         );
-      }, 4000);
+      }, 5000);
 
       return;
     }
@@ -87,14 +86,12 @@ function RouteMap({
               params: { routingMode: "auto", results: 1 },
             },
             {
-              // Отключаем видимость маркеров пути
               wayPointVisible: false,
             }
           );
 
           myMapRef.current.geoObjects.add(multiRoute);
 
-          // Создаем макет балуна с кнопкой "Удалить маркер"
           const MyBalloonContentLayout =
             ymaps.templateLayoutFactory.createClass(
               balloonContentTemplateRoute,
@@ -119,7 +116,6 @@ function RouteMap({
             );
           ///////
 
-          // создаем Placemark для первой и второй точки маршрута
           const firstPlacemark = new ymaps.Placemark(
             firstCoords,
             {
@@ -154,7 +150,6 @@ function RouteMap({
     ///////
   }, [ymaps]);
 
-  //useEffect для добавления маршрута
   useEffect(() => {
     if (countMapRoute === 0 || !myMapRef.current || !ymaps) {
       return;
@@ -172,30 +167,30 @@ function RouteMap({
           if (!firstGeoObject) {
             dispatch(
               setErrorMessage(
-                `Адрес "${setFirstPoint.value}" не найден. Проверьте правильность введенного адреса.`
+                `The address "${setFirstPoint.value}" was not found. Check the accuracy of the entered address.`
               )
             );
 
             setTimeout(() => {
               dispatch(setErrorMessage(""));
-            }, 3000); // сбрасываем сообщение после 3 секунд
+            }, 3000);
 
             return;
           }
           if (!secondGeoObject) {
             dispatch(
               setErrorMessage(
-                `Адрес "${setSecondPoint.value}" не найден. Проверьте правильность введенного адреса.`
+                `The address "${setSecondPoint.value}" was not found. Check the accuracy of the entered address.`
               )
             );
 
             setTimeout(() => {
               dispatch(setErrorMessage(""));
-            }, 3000); // сбрасываем сообщение после 3 секунд
+            }, 3000);
 
             return;
           }
-          // Сбрасываем сообщение об ошибке, если маршрут успешно обработан
+
           dispatch(setErrorMessage(""));
 
           const firstCoords = firstGeoObject.geometry.getCoordinates();
@@ -208,17 +203,16 @@ function RouteMap({
             secondCoords.length !== 2
           ) {
             dispatch(
-              setErrorMessage("Произошла ошибка при геокодировании адресов: ")
+              setErrorMessage("An error occurred during address geocoding: ")
             );
 
             setTimeout(() => {
               dispatch(setErrorMessage(""));
-            }, 3000); // сбрасываем сообщение после 3 секунд
+            }, 3000);
 
             return;
           }
 
-          // Добавляем маршрут в базу данных
           addRoute({
             first_latitude: firstCoords[0],
             first_longitude: firstCoords[1],
@@ -230,7 +224,6 @@ function RouteMap({
               ///
 
               if (typeof result === "string") {
-                // Это сообщение об ошибке
                 dispatch(setErrorMessage(result));
                 setTimeout(() => {
                   dispatch(setErrorMessage(""));
@@ -245,18 +238,16 @@ function RouteMap({
                   referencePoints: [firstCoords, secondCoords],
                   params: {
                     routingMode: "auto",
-                    results: 1, // Отображаем только один маршрут
+                    results: 1,
                   },
                 },
                 {
-                  // Отключаем видимость маркеров пути
                   wayPointVisible: false,
                 }
               );
               /*  multiRouteRef.current = multiRoute; */
               myMapRef.current.geoObjects.add(multiRoute);
 
-              // Создаем макет балуна с кнопкой "Удалить маркер"
               const MyBalloonContentLayout =
                 ymaps.templateLayoutFactory.createClass(
                   balloonContentTemplateRoute,
@@ -299,47 +290,41 @@ function RouteMap({
 
               myMapRef.current.geoObjects.add(firstPlacemark);
               myMapRef.current.geoObjects.add(secondPlacemark);
-              dispatch(setSubmitMessage("Маршрут успешно добавлен"));
+              dispatch(
+                setSubmitMessage("The route has been successfully added.")
+              );
               setTimeout(() => {
                 dispatch(setSubmitMessage(""));
-              }, 3000); // сбрасываем сообщение после 3 секунд
+              }, 3000);
 
-              // Центр карты по координатам первой точки
               myMapRef.current.setCenter(firstCoords);
               /////
             })
             .catch((error) => {
-              // Обработка ошибок при добавлении маршрута в базу данных
               console.error("Error adding route: ", error);
             });
-          /// добавляем маршрут в базу данных
         })
         .catch((error) => {
-          // Обработка ошибок при геокодировании
           dispatch(
             setErrorMessage(
-              "Произошла ошибка при геокодировании адресов: " + error
+              "An error occurred during address geocoding: " + error
             )
           );
 
           setTimeout(() => {
             dispatch(setErrorMessage(""));
-          }, 3000); // сбрасываем сообщение после 3 секунд
+          }, 3000);
           /////
         });
     });
   }, [countMapRoute, ymaps]);
 
-  // для подсказок адреса firstPoint
   usePointSuggestionRoute(ymaps, firstPointRef, setSelectedFirstAddress);
 
-  /////////  для установки значения адреса подсказок в  поле ввода адреса firstPoint
   useSetPointRoute(selectedFirstAddress, setFirstPoint, ymaps);
 
-  // для подсказок адреса secondPoint
   usePointSuggestionRoute(ymaps, secondPointRef, setSelectedSecondAddress);
 
-  /////////  для установки значения адреса подсказок в  поле ввода адреса secondPoint
   useSetPointRoute(selectedSecondAddress, setSecondPoint, ymaps);
 
   ////////////

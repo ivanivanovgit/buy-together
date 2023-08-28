@@ -59,32 +59,31 @@ function HomeLayout({ stylesHome }) {
       </ul>
 
       <div className={`${stylesHome.sectionTitle} ${stylesHome.sectionMt6}`}>
-        Примеры использования сервиса
+        Examples of using the service
       </div>
 
       <ol className={stylesHome.numberedList}>
         <li>
-          Например, Вы стали собственником квартиры в новом комплексе или дачи в
-          садовом товариществе. Тогда с помощью данного сервиса можно легко
-          спланировать совместную покупку (покупку вскладчину) строительных
-          материалов, экономя на доставке крупногабаритных товаров.
+          For instance, if you've become the owner of an apartment in a new
+          complex or a summer house in a gardening association, then with the
+          help of this service, you can easily plan a joint purchase of building
+          materials, saving on the delivery of bulky goods.
         </li>
         <li>
-          Если после ремонта у Вас остались стройматериалы, которые вы хотите
-          продать, то Вы можете оставить объявление на вкладке "Чат на карте",
-          чтобы найти поблизости желающих купить их.
+          For example, if you and your friends are choosing a cafe, with the
+          help of this service, you can easily exchange messages on the map, and
+          in this way, more conveniently and quickly select a suitable place.
         </li>
         <li>
-          Например, Вы регулярно следуете определённому маршруту на работу или
-          перевозите груз. Тогда, можно добавить информацию о вашем маршруте на
-          вкладке "Поиск попутных машин" и получить возможность заработать на
-          этом.
+          For example, if you regularly follow a specific route to work, you can
+          add information about your route in the "Routes" tab and get the
+          opportunity to earn money by delivering cargo on the way
         </li>
       </ol>
 
       <p className={stylesHome.text}>
-        Делитесь данным сервисом с друзьями, соседями и знакомыми в общих чатах
-        и группах.
+        Share this service with friends, neighbors, and acquaintances in common
+        chats and groups.
       </p>
     </div>
   );
