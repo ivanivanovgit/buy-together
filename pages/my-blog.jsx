@@ -36,7 +36,7 @@ const MyBlog = () => {
               </li>
             </ActiveLink>
             <ActiveLink
-              href="/blog-passing-cars"
+              href="/blog-routes-cars"
               hoverStyle={{ color: Constants.thirdColor }}
             >
               <li>

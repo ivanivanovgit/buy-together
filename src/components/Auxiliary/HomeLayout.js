@@ -12,7 +12,7 @@ function HomeLayout({ stylesHome }) {
         <div className={stylesHome.widthMainMap}>
           <Image
             src={mainMap}
-            alt="Чат на карте: карты онлайн с чатом"
+            alt="Chat on the map: maps online with chat"
             width="auto"
             height="auto"
             priority
@@ -20,13 +20,14 @@ function HomeLayout({ stylesHome }) {
         </div>
       </div>
       <p className={`${stylesHome.text} ${stylesHome.textMainMap}`}>
-        <span className={stylesHome.bold}>Купим вместе</span> — это сервис для
-        совместных покупок (чат на карте) и поиска попутных машин.
+        Using the <span className={stylesHome.bold}>'Chat on the map'</span>{" "}
+        service, you can leave a message on the map and share it with other
+        people.
       </p>
       <p className={stylesHome.text}>
-        Функционал сервиса включает три ключевые вкладки: "Чат на карте", "Поиск
-        попутных машин" и "Где купить", которые работают без регистрациии.
-        Использование сервиса абсолютно бесплатно.
+        The service's functionality includes two key tabs: "Chat on the map" and
+        "Routes", which operate without registration. The use of the service is
+        completely free.
       </p>
 
       <ul className={stylesHome.bulletList}>
@@ -35,37 +36,28 @@ function HomeLayout({ stylesHome }) {
             <span
               className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
             >
-              Чат на карте:{" "}
+              Chat on the map:{" "}
             </span>
           </ActiveLink>
-          это основная вкладка сервиса, на ней можно обмениваться сообщениями,
-          размещая их на карте. Таким образом, удобно объединяться для
-          совместных покупок (покупок вскладчину).
+          this is the main tab of the service, where you can exchange messages
+          by placing them on the map. In this way, it's convenient to come
+          together for various things, such as group purchases, choosing a
+          restaurant, and so on
         </li>
         <li>
-          <ActiveLink href="/passing-cars">
+          <ActiveLink href="/routes">
             <span
               className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
             >
-              Поиск попутных машин:{" "}
+              Routes{" "}
             </span>
           </ActiveLink>
-          на данной вкладке Вы можете посмотреть или добавить информацию о
-          попутных машинах для перевозки грузов.
+          on this tab, you can view or add information about routes with a
+          message. It's convenient for planning a route on a trip with friends,
+          finding rideshare vehicles, and so on.
         </li>
       </ul>
 
-      <p className={stylesHome.text}>
-        В разделе{" "}
-        <ActiveLink href="/social">
-          <span
-            className={`${stylesHome.subsectionTitle} ${stylesHome.homeLink}`}
-          >
-            "Social channels"
-          </span>
-        </ActiveLink>{" "}
-        You can find a list of channels that are useful for the construction
-      </p>
       <div className={`${stylesHome.sectionTitle} ${stylesHome.sectionMt6}`}>
         Примеры использования сервиса
       </div>

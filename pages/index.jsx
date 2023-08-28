@@ -11,12 +11,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          Сервис "Купим вместе" (чат на карте и поиск попутных машин)
-        </title>
+        <title>Chat on the map</title>
         <meta
           name="description"
-          content="Купим вместе — это сервис для совместных покупок (чат на карте) и поиска попутных машин"
+          content="Using the 'Chat on the map' service, you can leave a message on the map and share it with other people."
         />
       </Head>
       {isMatch ? <VerticalHome /> : <HorizontHome />}

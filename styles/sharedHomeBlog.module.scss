@@ -1,4 +1,4 @@
-// sharedHomeSocial.module.scss
+// sharedHomeBlog.module.scss
 @import "sharedRouteChat.module.scss";
 
 .container {
@@ -6,7 +6,7 @@
 }
 
 .bold {
-  @apply font-bold text-lg;
+  @apply font-bold;
 }
 
 .text {

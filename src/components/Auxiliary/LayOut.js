@@ -7,13 +7,11 @@ const linksArray = [
   { name: "Home page", id: 0, href: "/" },
   { name: "Chat on the map", id: 1, href: "/chat-on-the-map" },
   {
-    name: "Passing cars",
+    name: "Routes",
     id: 2,
-    href: "/passing-cars",
+    href: "/routes",
   },
-  { name: "Social channels", id: 3, href: "/social" },
-  ,
-  { name: "Blog", id: 4, href: "/my-blog" },
+  { name: "Blog", id: 3, href: "/my-blog" },
   ,
 ];
 

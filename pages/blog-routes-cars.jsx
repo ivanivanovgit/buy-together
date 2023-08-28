@@ -1,8 +1,8 @@
-// blog-passing-cars.jsx
+// blog-routes-cars.jsx
 import Head from "next/head";
 import styles from "../styles/Blog.module.scss";
 
-function blogPassingCars() {
+function blogRoutesCars() {
   return (
     <>
       <Head>
@@ -77,4 +77,4 @@ function blogPassingCars() {
   );
 }
 
-export default blogPassingCars;
+export default blogRoutesCars;
