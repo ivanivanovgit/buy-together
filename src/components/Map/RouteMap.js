@@ -131,7 +131,6 @@ function RouteMap({
             getPlacemarkOptions(MyBalloonContentLayout, ymaps)
           );
 
-          // добавляем Placemark на карту
           myMapRef.current.geoObjects.add(firstPlacemark);
           myMapRef.current.geoObjects.add(secondPlacemark);
         });

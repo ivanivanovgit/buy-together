@@ -30,7 +30,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
   } = useController({
     name: "firstPoint",
     control,
-    rules: { required: "Введите адрес пункта отправления" },
+    rules: { required: "Enter the departure point address" },
     defaultValue: "",
   });
 
@@ -40,7 +40,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
   } = useController({
     name: "secondPoint",
     control,
-    rules: { required: "Введите адрес пункта назначения" },
+    rules: { required: "Enter the destination address" },
     defaultValue: "",
   });
 
@@ -50,7 +50,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
   } = useController({
     name: "messageFirstPoint",
     control,
-    rules: { required: "Введите сообщение для маршрута" },
+    rules: { required: "Enter a message for the route" },
     defaultValue: "",
   });
 
@@ -93,10 +93,9 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
     <div className={layoutStyles.wrapper}>
       <div className={layoutStyles.leftSide}>
         <div className={layoutStyles.RouteLabel}>
-          Просмотр и добавление маршрутов на карту
+          Viewing and adding routes to the map
         </div>
 
-        {/* Форма для добавления маршрутов */}
         <form onSubmit={handleSubmit(handleFormAddRoute)}>
           <div className={layoutStyles.firstPointInput}>
             <input
@@ -106,10 +105,10 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
                 setFirstPointRef(e);
                 firstPointRef.current = e;
               }}
-              placeholder="&nbsp;Адрес пункта отправления"
+              placeholder="&nbsp;Departure point address"
               pattern="^[^<>]*\S[^<>]*$"
               maxLength={200}
-              title="Пожалуйста, введите адрес пункта отправления."
+              title="Please enter the departure point address."
             />
             {setFirstPointError && (
               <div className={layoutStyles.smallWarning}>
@@ -125,10 +124,10 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
                 setSecondPointRef(e);
                 secondPointRef.current = e;
               }}
-              placeholder="&nbsp;Адрес пункта назначения"
+              placeholder="&nbsp;Destination address"
               pattern="^[^<>]*\S[^<>]*$"
               maxLength={200}
-              title="Пожалуйста, введите адрес пункта назначения."
+              title="Please enter the destination address."
             />
             {setSecondPointError && (
               <div className={layoutStyles.smallWarning}>
@@ -143,10 +142,10 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
               ref={(e) => {
                 setMessageFirstPointRef(e);
               }}
-              placeholder="&nbsp;Сообщение для маршрута"
+              placeholder="&nbsp;Message for the route"
               pattern="^[^<>]*\S[^<>]*$"
               maxLength={300}
-              title="Пожалуйста, введите сообщение для маршрута. Данное сообщение будет у пунктов отправления и назначения. Длина сообщения не должна превышать 300 символов."
+              title="Please enter a message for the route. This message will be for the departure and destination points. The message length should not exceed 300 characters."
               onChange={(e) =>
                 handleInputChange(setMessageFirstPoint.onChange, e.target.value)
               }
@@ -162,7 +161,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
               className={`${layoutStyles.mainButtonStyle} ${layoutStyles.routeButton} ${layoutStyles.addRouteButton}`}
               type="submit"
             >
-              Добавить маршрут
+              Add a route
             </button>
 
             <button
@@ -170,7 +169,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
               type="button"
               onClick={handleClearFields}
             >
-              Очистить поля
+              Clear fields
             </button>
           </div>
         </form>
@@ -178,9 +177,7 @@ function RouteMapLayout({ mapRoute, layoutStyles }) {
           {errorMessage && (
             <div className={layoutStyles.errorMessageRoute}>{errorMessage}</div>
           )}
-          {submitMessage && ( // отображение сообщения после отправки
-            <div>{submitMessage}</div>
-          )}
+          {submitMessage && <div>{submitMessage}</div>}
         </div>
       </div>
       <div className={layoutStyles.rightSide}>

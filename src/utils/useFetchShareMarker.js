@@ -23,17 +23,14 @@ export const useFetchShareMarker = (
             if (myMapRef.current && marker && marker.lat && marker.lng) {
               myMapRef.current.setCenter([marker.lat, marker.lng]);
               myMapRef.current.setZoom(21);
-              // Проверяем, существует ли clustererRef.current перед поиском маркера
+
               if (clustererRef.current) {
-                // Получаем все маркеры из кластера
                 let allMarkers = clustererRef.current.getGeoObjects();
 
-                // Ищем маркер по ID
                 let markerToOpen = allMarkers.find(
                   (m) => m.properties.get("id") === marker.id
                 );
 
-                // Открываем балун маркера
                 if (markerToOpen) {
                   markerToOpen.balloon.open();
                 }

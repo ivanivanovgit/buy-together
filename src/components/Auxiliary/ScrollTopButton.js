@@ -9,7 +9,6 @@ import { Box } from "@mui/system";
 function ScrollTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Функция обработчика прокрутки
   const toggleVisibility = () => {
     if (window.scrollY > 100) {
       setIsVisible(true);
@@ -18,7 +17,6 @@ function ScrollTopButton() {
     }
   };
 
-  // Функция прокрутки вверх
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

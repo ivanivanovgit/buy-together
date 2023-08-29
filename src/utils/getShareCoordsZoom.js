@@ -16,7 +16,10 @@ export const getShareCoordsZoom = async (
         zoom = zoomMax;
       }
     } catch (error) {
-      console.error("Ошибка при получении информации о маркере: ", error);
+      console.error(
+        "Error when retrieving information about the marker: ",
+        error
+      );
     }
   }
 };

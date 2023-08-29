@@ -1,6 +1,6 @@
 // getAddress.js
 import { setIsMarkerPlaced } from "../redux/slices/chatSlices/chatMapSlice";
-// Определяем адрес по координатам (обратное геокодирование).
+
 export function getAddress(
   ymaps,
   coords,

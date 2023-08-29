@@ -11,8 +11,7 @@ const MyBlog = () => {
     <>
       <Head>
         <title>
-          Блог с примерами использования сервиса "Купим вместе" (чат на карте,
-          поиск попутных машин, совместные покупки)
+          Blog with examples of using the 'Chat on the map' service.'
         </title>
         <meta
           name="description"
@@ -26,7 +25,7 @@ const MyBlog = () => {
           </div>
           <ul className={styles.bulletList}>
             <ActiveLink
-              href="/blog-service-map-chat"
+              href="/blog-service-map-chat-restaurant"
               hoverStyle={{ color: Constants.thirdColor }}
             >
               <li>
@@ -36,12 +35,23 @@ const MyBlog = () => {
               </li>
             </ActiveLink>
             <ActiveLink
-              href="/blog-routes-cars"
+              href="/blog-hitchhiking"
               hoverStyle={{ color: Constants.thirdColor }}
             >
               <li>
                 <span className={styles.subsectionTitle}>
                   Hitchhiking journey using the "Chat on the map" service
+                </span>
+              </li>
+            </ActiveLink>
+            <ActiveLink
+              href="/blog-service-map-chat-delivery"
+              hoverStyle={{ color: Constants.thirdColor }}
+            >
+              <li>
+                <span className={styles.subsectionTitle}>
+                  Turning Your Daily Route into a Profitable Journey with "Chat
+                  on the Map"
                 </span>
               </li>
             </ActiveLink>

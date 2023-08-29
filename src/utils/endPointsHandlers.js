@@ -2,25 +2,23 @@
 
 import axios from "axios";
 
-// Получение маркера из БД по id
 export async function getShareMarker(markerId) {
   try {
     const response = await axios.get(
       `/api/chat-markers/share-marker/${markerId}`
     );
-    // Проверяем, есть ли в ответе ошибка
+
     if (response.data.error) {
       throw new Error(response.data.error);
     }
     return response.data;
   } catch (error) {
     console.error(error);
-    // Если возникла ошибка, возвращаем сообщение об ошибке
-    throw new Error("Маркера с заданной темой и сообщением не существует");
+
+    throw new Error("There is no marker with the specified theme and message");
   }
 }
 
-// Проверка наличия дубликата маркера с одинаковыми координатами в БД
 export async function checkDuplicateMarkerCoords(lat, lng) {
   try {
     const response = await axios.post(
@@ -41,7 +39,6 @@ export async function checkDuplicateMarkerCoords(lat, lng) {
   }
 }
 
-// Проверка наличия дубликата маркера в БД
 export async function checkDuplicateMarker(lat, lng, message) {
   try {
     const response = await axios.post(`/api/chat-markers/check-duplicate`, {
@@ -57,7 +54,6 @@ export async function checkDuplicateMarker(lat, lng, message) {
   }
 }
 
-// Проверка наличия маркеров в БД по теме
 export async function checkThemeHasMarkers(theme) {
   try {
     const response = await axios.get(`/api/chat-markers/has-markers/${theme}`);
@@ -69,7 +65,6 @@ export async function checkThemeHasMarkers(theme) {
   }
 }
 
-// Удаление маркера из БД
 export async function removeMarkerFromDB(markerId) {
   try {
     const response = await axios.delete(
@@ -81,7 +76,6 @@ export async function removeMarkerFromDB(markerId) {
   }
 }
 
-// Извлечение записей chat_markers по теме из БД
 export async function fetchMarkersByTheme(theme) {
   try {
     const response = await axios.get(`/api/chat-markers/${theme}`);
@@ -91,7 +85,6 @@ export async function fetchMarkersByTheme(theme) {
   }
 }
 
-// Извлечение тем из БД
 export async function fetchThemes() {
   try {
     const response = await axios.get("/api/chat-markers/themes");
@@ -101,7 +94,6 @@ export async function fetchThemes() {
   }
 }
 
-// Получить все маркеры с сообщениями
 export async function getMarkersFromDatabase() {
   try {
     const response = await axios.get("/api/chat-markers");
@@ -112,7 +104,6 @@ export async function getMarkersFromDatabase() {
   }
 }
 
-// Добавить маркер с сообшением
 export const addMarkerToDatabase = async (lat, lng, theme, message_markers) => {
   try {
     const response = await axios.post("/api/chat-markers", {
@@ -124,11 +115,10 @@ export const addMarkerToDatabase = async (lat, lng, theme, message_markers) => {
     return response.data;
     /*  console.log("Маркер успешно добавлен в БД с markerId: " + response.data.markerId); */
   } catch (error) {
-    console.error("Ошибка при добавлении маркера в БД: ", error);
+    console.error("Error when adding the marker to the database: ", error);
   }
 };
 
-// Получить все маршруты
 export async function getRoutes() {
   try {
     const response = await axios.get("/api/routes");
@@ -138,7 +128,6 @@ export async function getRoutes() {
   }
 }
 
-// Добавить новый маршрут
 export async function addRoute(route) {
   const {
     first_latitude,
@@ -159,8 +148,7 @@ export async function addRoute(route) {
         existingRoute.second_latitude === second_latitude &&
         existingRoute.second_longitude === second_longitude
       ) {
-        // Маршрут уже существует
-        return "Маршрут с такими координатами уже существует";
+        return "A route with these coordinates already exists";
       }
     }
 
@@ -179,7 +167,6 @@ export async function addRoute(route) {
   }
 }
 
-// Удалить маршрут
 export async function deleteRoute(routeId) {
   try {
     await axios.delete(`/api/routes/${routeId}`);

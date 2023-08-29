@@ -9,7 +9,6 @@ export const useShareMarker = (
 ) => {
   useEffect(() => {
     if (Object.keys(router.query).length === 0) {
-      // query ещё не доступен, выходим из useEffect
       return;
     }
 

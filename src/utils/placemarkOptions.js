@@ -6,13 +6,13 @@ export const balloonContentTemplate = `
     $[properties.balloonContent]
     <div class="button-delete-marker">
       <button id="delete-marker-button">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Удалить
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </button>
     </div>
     <div class="button-share-marker">
       <button id="share-marker-button">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Поделиться
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Share
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </button>
     </div>
@@ -63,7 +63,7 @@ export const balloonContentTemplateRoute = `
     $[properties.balloonContent]
     <div class="button-delete-marker">
       <button id="delete-marker-button">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Удалить
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </button>
     </div>
@@ -121,7 +121,6 @@ export function getPlacemarkOptions(MyBalloonContentLayout, ymaps) {
   };
 }
 
-// Получить ID маркера и поделиться ссылкой на маркер
 export async function shareMarker(addPlacemark, getShareMarker, dispatch) {
   if (!addPlacemark || !getShareMarker || !setShowMessage) return;
 
@@ -130,22 +129,23 @@ export async function shareMarker(addPlacemark, getShareMarker, dispatch) {
   if (typeof window !== "undefined") {
     try {
       const markerData = await getShareMarker(markerId);
-      const theme = markerData.theme; // получаем тему маркера
+      const theme = markerData.theme;
       const host_name = window.location.host;
 
-      // Создаем ссылку на маркер с темой
       const url = `${host_name}/chat-on-the-map?id=${markerId}&theme=${theme}`;
 
-      // Копировать ссылку в буфер обмена
       navigator.clipboard.writeText(url).then(() => {});
 
-      dispatch(setShowMessage("Маркер скопирован в буфер обмена"));
+      dispatch(setShowMessage("The marker has been copied to the clipboard"));
 
       setTimeout(() => {
         dispatch(setShowMessage(""));
       }, 3000);
     } catch (error) {
-      console.error("Ошибка при получении информации о маркере: ", error);
+      console.error(
+        "Error while retrieving information about the marker: ",
+        error
+      );
     }
   }
 }
