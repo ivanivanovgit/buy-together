@@ -1,5 +1,7 @@
 # Chat on the Map Service
 
+Visit our website: [https://chat-map.vercel.app/](https://chat-map.vercel.app/)
+
 "Chat on the map" is a unique platform that allows users to leave messages directly on a map and share them with a wide community. Whether you're planning a group purchase, choosing a restaurant, or looking for rideshare opportunities, this service offers a straightforward and free solution.
 
 ## Features
