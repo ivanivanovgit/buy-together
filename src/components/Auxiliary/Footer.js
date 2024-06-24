@@ -16,8 +16,7 @@ const Footer = () => {
         padding: "0 0.5rem",
       }}
     >
-      If you want to save your message in the "Chat on the map" section, or if
-      you need website development, please email: {Constants.email}
+      
     </Box>
   );
 };
